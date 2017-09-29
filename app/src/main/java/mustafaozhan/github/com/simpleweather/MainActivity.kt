@@ -111,5 +111,19 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, G
     override fun onLocationChanged(location: Location?) {
         txtLocation.text = "${location!!.latitude} - ${location!!.longitude}"
     }
+    override fun onStart() {
+        super.onStart()
+        if (mGoogleApiClient!=null)
+            mGoogleApiClient!!.connect()
+    }
 
+    override fun onDestroy() {
+        mGoogleApiClient!!.disconnect()
+        super.onDestroy()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        checkPlayService()
+    }
 }
