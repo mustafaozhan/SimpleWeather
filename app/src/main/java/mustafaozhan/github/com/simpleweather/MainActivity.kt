@@ -18,12 +18,10 @@ import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationServices
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import kotlinx.android.synthetic.main.activity_main.*
 import mustafaozhan.github.com.simpleweather.common.Common
 import mustafaozhan.github.com.simpleweather.common.Helper
 import mustafaozhan.github.com.simpleweather.model.ResponseModel
 import org.jetbrains.anko.doAsync
-import org.jetbrains.anko.uiThread
 import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
@@ -75,7 +73,7 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, G
 
 
     private fun checkPlayService(): Boolean {
-        var resultCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this)
+        val resultCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this)
         if (resultCode != ConnectionResult.SUCCESS) {
             if (GooglePlayServicesUtil.isUserRecoverableError(resultCode))
                 GooglePlayServicesUtil.getErrorDialog(resultCode, this, PLAY_SERVICE_RESOLUTION_REQUEST).show()
@@ -118,15 +116,14 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, G
     }
 
     override fun onLocationChanged(location: Location?) {
-        txtLocation.text = "${location!!.latitude} - ${location!!.longitude}"
 
-        var pd = ProgressDialog(this@MainActivity)
+        val pd = ProgressDialog(this@MainActivity)
         pd.setTitle("Please wait")
         pd.show()
 
         doAsync {
 
-            val urlString = Common.apiRequest(location.latitude.toString(), location.longitude.toString())
+            val urlString = Common.apiRequest(location?.latitude.toString(), location?.longitude.toString())
             val http = Helper()
 
 
