@@ -1,5 +1,6 @@
 package mustafaozhan.github.com.simpleweather
 
+import android.app.ProgressDialog
 import android.content.pm.PackageManager
 import android.location.Location
 
@@ -15,7 +16,15 @@ import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.location.LocationListener
 import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationServices
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.activity_main.*
+import mustafaozhan.github.com.simpleweather.common.Common
+import mustafaozhan.github.com.simpleweather.common.Helper
+import mustafaozhan.github.com.simpleweather.model.ResponseModel
+import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.uiThread
+import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
 
@@ -25,6 +34,7 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, G
 
     private var mGoogleApiClient: GoogleApiClient? = null
     var mLocationRequest: LocationRequest? = null
+    var openWeatherMap = ResponseModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -109,6 +119,29 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, G
 
     override fun onLocationChanged(location: Location?) {
         txtLocation.text = "${location!!.latitude} - ${location!!.longitude}"
+
+        var pd = ProgressDialog(this@MainActivity)
+        pd.setTitle("Please wait")
+        pd.show()
+
+        doAsync {
+
+            val urlString = Common.apiRequest(location.latitude.toString(), location.longitude.toString())
+            val http = Helper()
+
+
+            thread {
+                val stream = http.getHTTPData(urlString)
+                if (stream.contains("Error: Not found city"))
+                    pd.dismiss()
+                val gson = Gson()
+                val mType = object : TypeToken<ResponseModel>() {}.type
+
+                openWeatherMap = gson.fromJson<ResponseModel>(stream, mType)
+                pd.dismiss()
+
+            }
+        }
     }
 
     override fun onStart() {
