@@ -18,6 +18,8 @@ import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationServices
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.activity_main.*
 import mustafaozhan.github.com.simpleweather.common.Common
 import mustafaozhan.github.com.simpleweather.common.Helper
 import mustafaozhan.github.com.simpleweather.model.ResponseModel
@@ -137,8 +139,24 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, G
                 openWeatherMap = gson.fromJson<ResponseModel>(stream, mType)
                 pd.dismiss()
 
+               runOnUiThread { setUi(openWeatherMap) }
+
             }
+
         }
+    }
+
+    private fun setUi(openWeatherMap: ResponseModel) {
+        txtCity.text="${openWeatherMap.name},${openWeatherMap.sys!!.country}"
+        txtLastUpdate.text="Last Updated: ${Common.getCurrentDate()}"
+        txtDescription.text="${openWeatherMap.weather!![0].description}"
+        txtTime.text="${Common.unixTimeStampToDateTime(openWeatherMap.sys!!.sunrise!!.toDouble())}/${Common.unixTimeStampToDateTime(openWeatherMap.sys!!.sunset!!.toDouble())}"
+        txtHuminty.text="${openWeatherMap.main!!.humidity}"
+        txtCelsius.text="${openWeatherMap.main!!.temp} °C"
+
+        Picasso.with(this@MainActivity)
+                .load(Common.getImage(openWeatherMap.weather!![0].icon!!))
+                .into(imageView)
     }
 
     override fun onStart() {
