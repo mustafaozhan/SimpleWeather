@@ -64,7 +64,6 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, G
     }
 
 
-
     private fun checkPlayService(): Boolean {
         var resultCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this)
         if (resultCode != ConnectionResult.SUCCESS) {
@@ -111,9 +110,10 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, G
     override fun onLocationChanged(location: Location?) {
         txtLocation.text = "${location!!.latitude} - ${location!!.longitude}"
     }
+
     override fun onStart() {
         super.onStart()
-        if (mGoogleApiClient!=null)
+        if (mGoogleApiClient != null)
             mGoogleApiClient!!.connect()
     }
 
