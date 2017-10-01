@@ -18,10 +18,11 @@ import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationServices
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
 import mustafaozhan.github.com.simpleweather.common.Common
 import mustafaozhan.github.com.simpleweather.common.Helper
+import mustafaozhan.github.com.simpleweather.common.extension.setImageByUrl
+import mustafaozhan.github.com.simpleweather.model.FutureModel
 import mustafaozhan.github.com.simpleweather.model.ResponseModel
 import org.jetbrains.anko.doAsync
 import kotlin.concurrent.thread
@@ -35,6 +36,7 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, G
     private var mGoogleApiClient: GoogleApiClient? = null
     var mLocationRequest: LocationRequest? = null
     var openWeatherMap = ResponseModel()
+    var futureOpenWeatherMap = FutureModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -126,37 +128,58 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, G
         doAsync {
 
             val urlString = Common.apiRequest(location?.latitude.toString(), location?.longitude.toString())
+            val futureUrlString = Common.futureApiRequest(location?.latitude.toString(), location?.longitude.toString())
             val http = Helper()
 
 
             thread {
-                val stream = http.getHTTPData(urlString)
+                var stream = http.getHTTPData(urlString)
                 if (stream.contains("Error: Not found city"))
                     pd.dismiss()
-                val gson = Gson()
-                val mType = object : TypeToken<ResponseModel>() {}.type
+                var gson = Gson()
+                var mType = object : TypeToken<ResponseModel>() {}.type
 
                 openWeatherMap = gson.fromJson<ResponseModel>(stream, mType)
+
+
+                stream = http.getHTTPData(futureUrlString)
+                if (stream.contains("Error: Not found city"))
+                    pd.dismiss()
+                gson = Gson()
+                mType = object : TypeToken<FutureModel>() {}.type
+
+                futureOpenWeatherMap = gson.fromJson<FutureModel>(stream, mType)
+
+                val a=futureOpenWeatherMap
+
                 pd.dismiss()
 
-               runOnUiThread { setUi(openWeatherMap) }
+                runOnUiThread {
+                    setUi(openWeatherMap)
+                    setFutureUi(futureOpenWeatherMap)
+                }
 
             }
 
         }
     }
 
-    private fun setUi(openWeatherMap: ResponseModel) {
-        txtCity.text="${openWeatherMap.name},${openWeatherMap.sys!!.country}"
-        txtLastUpdate.text="Last Updated: ${Common.getCurrentDate()}"
-        txtDescription.text="${openWeatherMap.weather!![0].description}"
-        txtTime.text="${Common.unixTimeStampToDateTime(openWeatherMap.sys!!.sunrise!!.toDouble())}/${Common.unixTimeStampToDateTime(openWeatherMap.sys!!.sunset!!.toDouble())}"
-        txtHuminty.text="${openWeatherMap.main!!.humidity}"
-        txtCelsius.text="${openWeatherMap.main!!.temp} °C"
+    private fun setFutureUi(futureOpenWeatherMap: FutureModel) {
 
-        Picasso.with(this@MainActivity)
-                .load(Common.getImage(openWeatherMap.weather!![0].icon!!))
-                .into(imageView)
+
+
+    }
+
+    private fun setUi(openWeatherMap: ResponseModel) {
+        txtCity.text = "${openWeatherMap.name},${openWeatherMap.sys!!.country}"
+        txtLastUpdate.text = "Last Updated: ${Common.getCurrentDate()}"
+        txtDescription.text = "${openWeatherMap.weather!![0].description}"
+        txtTime.text = "${Common.unixTimeStampToDateTime(openWeatherMap.sys!!.sunrise!!.toDouble())} / ${Common.unixTimeStampToDateTime(openWeatherMap.sys!!.sunset!!.toDouble())}"
+        txtHuminty.text = "Humidity %${openWeatherMap.main!!.humidity}"
+        txtCelsius.text = "${openWeatherMap.main!!.temp} °C"
+
+        imageView.setImageByUrl(openWeatherMap.weather!![0].icon!!)
+
     }
 
     override fun onStart() {
@@ -175,3 +198,5 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, G
         checkPlayService()
     }
 }
+
+

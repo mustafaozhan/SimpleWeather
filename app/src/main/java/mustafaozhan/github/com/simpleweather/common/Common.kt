@@ -9,9 +9,15 @@ import java.util.*
 object Common {
     private val API_KEY = "365891e5ccaa5c76adac3f14ce4f2a26"
     private val API_LINK = "http://api.openweathermap.org/data/2.5/weather"
+    private val FUTURE_LINK="http://api.openweathermap.org/data/2.5/forecast/daily"
 
 
     fun apiRequest(lat: String, lng: String): String {
+        val sb = StringBuilder(API_LINK)
+        sb.append("?lat=$lat&lon=$lng&APPID=$API_KEY&units=metric")
+        return sb.toString()
+    }
+    fun futureApiRequest(lat: String, lng: String): String {
         val sb = StringBuilder(API_LINK)
         sb.append("?lat=$lat&lon=$lng&APPID=$API_KEY&units=metric")
         return sb.toString()
