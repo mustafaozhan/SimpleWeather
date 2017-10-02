@@ -19,7 +19,7 @@ object Common {
     }
     fun futureApiRequest(lat: String, lng: String): String {
         val sb = StringBuilder(FUTURE_LINK)
-        sb.append("?lat=$lat&lon=$lng&APPID=$API_KEY&cnt=8")
+        sb.append("?lat=$lat&lon=$lng&APPID=$API_KEY&units=metric&cnt=8")
         return sb.toString()
     }
 

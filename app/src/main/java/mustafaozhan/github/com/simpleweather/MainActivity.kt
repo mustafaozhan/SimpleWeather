@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
 import android.util.Log
+import android.widget.ImageView
 import android.widget.Toast
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GooglePlayServicesUtil
@@ -18,10 +19,10 @@ import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationServices
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
 import mustafaozhan.github.com.simpleweather.common.Common
 import mustafaozhan.github.com.simpleweather.common.Helper
-import mustafaozhan.github.com.simpleweather.common.extension.setImageByUrl
 import mustafaozhan.github.com.simpleweather.model.FutureModel
 import mustafaozhan.github.com.simpleweather.model.ResponseModel
 import org.jetbrains.anko.doAsync
@@ -162,6 +163,35 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, G
 
     private fun setFutureUi(futureOpenWeatherMap: FutureModel) {
 
+        txtFutureCelsius1.text = futureOpenWeatherMap.list!![0].deg.toString()
+        txtFutureCelsius2.text = futureOpenWeatherMap.list!![1].deg.toString()
+        txtFutureCelsius3.text = futureOpenWeatherMap.list!![2].deg.toString()
+        txtFutureCelsius4.text = futureOpenWeatherMap.list!![3].deg.toString()
+        txtFutureCelsius5.text = futureOpenWeatherMap.list!![4].deg.toString()
+        txtFutureCelsius6.text = futureOpenWeatherMap.list!![5].deg.toString()
+        txtFutureCelsius7.text = futureOpenWeatherMap.list!![6].deg.toString()
+        txtFutureCelsius8.text = futureOpenWeatherMap.list!![7].deg.toString()
+
+        imgFuture1.setByUrl(imgFuture1,futureOpenWeatherMap.list!![0].weather!![0].icon!!)
+        imgFuture2.setByUrl(imgFuture2,futureOpenWeatherMap.list!![1].weather!![0].icon!!)
+        imgFuture3.setByUrl(imgFuture3,futureOpenWeatherMap.list!![2].weather!![0].icon!!)
+        imgFuture4.setByUrl(imgFuture4,futureOpenWeatherMap.list!![3].weather!![0].icon!!)
+        imgFuture5.setByUrl(imgFuture5,futureOpenWeatherMap.list!![4].weather!![0].icon!!)
+        imgFuture6.setByUrl(imgFuture6,futureOpenWeatherMap.list!![5].weather!![0].icon!!)
+        imgFuture7.setByUrl(imgFuture7,futureOpenWeatherMap.list!![6].weather!![0].icon!!)
+        imgFuture8.setByUrl(imgFuture8,futureOpenWeatherMap.list!![7].weather!![0].icon!!)
+
+
+
+//        imgFuture2.setImageByUrl(futureOpenWeatherMap.list!![1].weather!![0].icon!!)
+//        imgFuture3.setImageByUrl(futureOpenWeatherMap.list!![2].weather!![0].icon!!)
+//        imgFuture4.setImageByUrl(futureOpenWeatherMap.list!![3].weather!![0].icon!!)
+//        imgFuture5.setImageByUrl(futureOpenWeatherMap.list!![4].weather!![0].icon!!)
+//        imgFuture6.setImageByUrl(futureOpenWeatherMap.list!![5].weather!![0].icon!!)
+//        imgFuture7.setImageByUrl(futureOpenWeatherMap.list!![6].weather!![0].icon!!)
+//        imgFuture8.setImageByUrl(futureOpenWeatherMap.list!![7].weather!![0].icon!!)
+
+        Log.e("aasdasdas",""+futureOpenWeatherMap.list!![0].weather!![0].icon!!)
 
 
     }
@@ -174,7 +204,10 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, G
         txtHuminty.text = "Humidity %${openWeatherMap.main!!.humidity}"
         txtCelsius.text = "${openWeatherMap.main!!.temp} °C"
 
-        imageView.setImageByUrl(openWeatherMap.weather!![0].icon!!)
+        Picasso.with(applicationContext)
+                .load(Common.getImage(openWeatherMap.weather!![0].icon!!))
+                .into(imageView)
+
 
     }
 
@@ -193,6 +226,12 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, G
         super.onResume()
         checkPlayService()
     }
+}
+
+private fun ImageView.setByUrl(icon: ImageView, icon1: String) {
+    Picasso.with(context)
+            .load(Common.getImage(icon1))
+            .into(icon)
 }
 
 
