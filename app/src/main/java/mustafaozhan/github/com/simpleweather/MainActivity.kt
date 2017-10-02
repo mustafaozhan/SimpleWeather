@@ -55,7 +55,6 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, G
                 requestPermissions(arrayOf(android.Manifest.permission.ACCESS_COARSE_LOCATION,
                         android.Manifest.permission.ACCESS_FINE_LOCATION), PERMISSION_REQUEST_CODE)
 
-
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
@@ -133,24 +132,21 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, G
 
 
             thread {
-                var stream = http.getHTTPData(urlString)
-                if (stream.contains("Error: Not found city"))
+                var streamWeather = http.getHTTPData(urlString)
+                if (streamWeather.contains("Error: Not found city"))
                     pd.dismiss()
-                var gson = Gson()
+                var gSonWeather = Gson()
                 var mType = object : TypeToken<ResponseModel>() {}.type
 
-                openWeatherMap = gson.fromJson<ResponseModel>(stream, mType)
+                openWeatherMap = gSonWeather.fromJson<ResponseModel>(streamWeather, mType)
 
-
-                stream = http.getHTTPData(futureUrlString)
-                if (stream.contains("Error: Not found city"))
+                 streamWeather = http.getHTTPData(futureUrlString)
+                if (streamWeather.contains("Error: Not found city"))
                     pd.dismiss()
-                gson = Gson()
-                mType = object : TypeToken<FutureModel>() {}.type
+                gSonWeather = Gson()
+                 mType = object : TypeToken<FutureModel>() {}.type
 
-                futureOpenWeatherMap = gson.fromJson<FutureModel>(stream, mType)
-
-                val a=futureOpenWeatherMap
+                futureOpenWeatherMap = gSonWeather.fromJson<FutureModel>(streamWeather, mType)
 
                 pd.dismiss()
 
@@ -166,6 +162,7 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, G
 
     private fun setFutureUi(futureOpenWeatherMap: FutureModel) {
 
+        Log.e("----",":"+futureOpenWeatherMap.city)
 
 
     }

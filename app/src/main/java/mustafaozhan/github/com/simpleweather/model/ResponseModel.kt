@@ -5,7 +5,7 @@ package mustafaozhan.github.com.simpleweather.model
  * Created by Mustafa Ozhan on 9/30/17 at 2:03 PM on Arch Linux.
  */
 class ResponseModel {
-    var coord: Coord? = null
+    private var coord: Coord? = null
     var weather: List<Weather>? = null
     var base: String? = null
     var main: Main? = null
