@@ -140,11 +140,11 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, G
 
                 openWeatherMap = gSonWeather.fromJson<ResponseModel>(streamWeather, mType)
 
-                 streamWeather = http.getHTTPData(futureUrlString)
+                streamWeather = http.getHTTPData(futureUrlString)
                 if (streamWeather.contains("Error: Not found city"))
                     pd.dismiss()
                 gSonWeather = Gson()
-                 mType = object : TypeToken<FutureModel>() {}.type
+                mType = object : TypeToken<FutureModel>() {}.type
 
                 futureOpenWeatherMap = gSonWeather.fromJson<FutureModel>(streamWeather, mType)
 
@@ -162,7 +162,6 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, G
 
     private fun setFutureUi(futureOpenWeatherMap: FutureModel) {
 
-        Log.e("----",":"+futureOpenWeatherMap.city)
 
 
     }

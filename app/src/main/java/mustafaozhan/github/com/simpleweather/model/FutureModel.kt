@@ -5,20 +5,20 @@ package mustafaozhan.github.com.simpleweather.model
  * Created by Mustafa Ozhan on 9/30/17 at 8:11 PM on Arch Linux.
  */
 class FutureModel {
-
     var city: City? = null
     var cod: String? = null
     var message: Double? = null
     var cnt: Int? = null
-    var list: List<List<Any?>>? = null
+    var list: kotlin.collections.List<List>? = null
     private val additionalProperties = HashMap<String, Any>()
 
-    fun getAdditionalProperties(): Map<String, Any> = this.additionalProperties
+    fun getAdditionalProperties(): Map<String, Any> {
+        return this.additionalProperties
+    }
 
     fun setAdditionalProperty(name: String, value: Any) {
         this.additionalProperties.put(name, value)
     }
-
 
     inner class City {
 
@@ -29,14 +29,15 @@ class FutureModel {
         var population: Int? = null
         private val additionalProperties = HashMap<String, Any>()
 
-        fun getAdditionalProperties(): Map<String, Any> = this.additionalProperties
+        fun getAdditionalProperties(): Map<String, Any> {
+            return this.additionalProperties
+        }
 
         fun setAdditionalProperty(name: String, value: Any) {
             this.additionalProperties.put(name, value)
         }
 
     }
-
 
     inner class Coord {
 
@@ -44,7 +45,9 @@ class FutureModel {
         var lat: Double? = null
         private val additionalProperties = HashMap<String, Any>()
 
-        fun getAdditionalProperties(): Map<String, Any> = this.additionalProperties
+        fun getAdditionalProperties(): Map<String, Any> {
+            return this.additionalProperties
+        }
 
         fun setAdditionalProperty(name: String, value: Any) {
             this.additionalProperties.put(name, value)
@@ -52,21 +55,22 @@ class FutureModel {
 
     }
 
-
-    inner class List<T> {
+    inner class List {
 
         var dt: Int? = null
         var temp: Temp? = null
         var pressure: Double? = null
         var humidity: Int? = null
-        var weather: List<Weather>? = null
+        var weather: kotlin.collections.List<Weather>? = null
         var speed: Double? = null
         var deg: Int? = null
         var clouds: Int? = null
         var rain: Double? = null
         private val additionalProperties = HashMap<String, Any>()
 
-        fun getAdditionalProperties(): Map<String, Any> = this.additionalProperties
+        fun getAdditionalProperties(): Map<String, Any> {
+            return this.additionalProperties
+        }
 
         fun setAdditionalProperty(name: String, value: Any) {
             this.additionalProperties.put(name, value)
@@ -84,7 +88,9 @@ class FutureModel {
         var morn: Double? = null
         private val additionalProperties = HashMap<String, Any>()
 
-        fun getAdditionalProperties(): Map<String, Any> = this.additionalProperties
+        fun getAdditionalProperties(): Map<String, Any> {
+            return this.additionalProperties
+        }
 
         fun setAdditionalProperty(name: String, value: Any) {
             this.additionalProperties.put(name, value)
@@ -100,12 +106,13 @@ class FutureModel {
         var icon: String? = null
         private val additionalProperties = HashMap<String, Any>()
 
-        fun getAdditionalProperties(): Map<String, Any> = this.additionalProperties
+        fun getAdditionalProperties(): Map<String, Any> {
+            return this.additionalProperties
+        }
 
         fun setAdditionalProperty(name: String, value: Any) {
             this.additionalProperties.put(name, value)
         }
 
     }
-
 }
