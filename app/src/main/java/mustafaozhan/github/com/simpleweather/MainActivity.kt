@@ -182,6 +182,14 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, G
         txtFutureNight8.text = "Night: ${futureOpenWeatherMap.list!![7].temp!!.eve!!.toInt().toString()} °C"
 
 
+        txtDate1.text= Common.getCurrentDate(0)
+        txtDate2.text= Common.getCurrentDate(1)
+        txtDate3.text= Common.getCurrentDate(2)
+        txtDate4.text= Common.getCurrentDate(3)
+        txtDate5.text= Common.getCurrentDate(4)
+        txtDate6.text= Common.getCurrentDate(5)
+        txtDate7.text= Common.getCurrentDate(6)
+        txtDate8.text= Common.getCurrentDate(7)
 
 
         imgFuture1.setByUrl(imgFuture1, futureOpenWeatherMap.list!![0].weather!![0].icon!!)
@@ -194,22 +202,13 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, G
         imgFuture8.setByUrl(imgFuture8, futureOpenWeatherMap.list!![7].weather!![0].icon!!)
 
 
-//        imgFuture2.setImageByUrl(futureOpenWeatherMap.list!![1].weather!![0].icon!!)
-//        imgFuture3.setImageByUrl(futureOpenWeatherMap.list!![2].weather!![0].icon!!)
-//        imgFuture4.setImageByUrl(futureOpenWeatherMap.list!![3].weather!![0].icon!!)
-//        imgFuture5.setImageByUrl(futureOpenWeatherMap.list!![4].weather!![0].icon!!)
-//        imgFuture6.setImageByUrl(futureOpenWeatherMap.list!![5].weather!![0].icon!!)
-//        imgFuture7.setImageByUrl(futureOpenWeatherMap.list!![6].weather!![0].icon!!)
-//        imgFuture8.setImageByUrl(futureOpenWeatherMap.list!![7].weather!![0].icon!!)
-
-        Log.e("aasdasdas", "" + futureOpenWeatherMap.list!![0].weather!![0].icon!!)
 
 
     }
 
     private fun setUi(openWeatherMap: ResponseModel) {
         txtCity.text = "${openWeatherMap.name},${openWeatherMap.sys!!.country}"
-        txtLastUpdate.text = "Last Updated: ${Common.getCurrentDate()}"
+        txtLastUpdate.text = "Last Updated: ${Common.getCurrentDateAndTime()}"
         txtDescription.text = "${openWeatherMap.weather!![0].description}"
         txtTime.text = "${Common.unixTimeStampToDateTime(openWeatherMap.sys!!.sunrise!!.toDouble())} / ${Common.unixTimeStampToDateTime(openWeatherMap.sys!!.sunset!!.toDouble())}"
         txtHuminty.text = "Humidity %${openWeatherMap.main!!.humidity}"

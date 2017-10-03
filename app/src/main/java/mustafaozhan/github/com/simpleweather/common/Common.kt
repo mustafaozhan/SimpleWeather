@@ -30,10 +30,15 @@ object Common {
         return dateFormat.format(date)
     }
 
-    fun getCurrentDate(): String {
+    fun getCurrentDateAndTime(): String {
         val dateFormat = SimpleDateFormat("dd MM yyyy HH:mm")
         val date = Date()
         return dateFormat.format(date)
+    }
+    fun getCurrentDate(i:Int): String {
+        val dateFormat = SimpleDateFormat("dd MM yyyy")
+        val date = Date()
+        return dateFormat.format(date.time + (i*1000 * 60 * 60 * 24))
     }
 
     fun getImage(icon: String) = "http://openweathermap.org/img/w/$icon.png"
