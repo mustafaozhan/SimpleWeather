@@ -163,23 +163,23 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, G
 
     private fun setFutureUi(futureOpenWeatherMap: FutureModel) {
 
-        txtFutureDay1.text = "Day : ${futureOpenWeatherMap.list!![0].temp!!.day.toString()} °C"
-        txtFutureDay2.text = "Day : ${futureOpenWeatherMap.list!![1].temp!!.day.toString()} °C"
-        txtFutureDay3.text = "Day : ${futureOpenWeatherMap.list!![2].temp!!.day.toString()} °C"
-        txtFutureDay4.text = "Day : ${futureOpenWeatherMap.list!![3].temp!!.day.toString()} °C"
-        txtFutureDay5.text = "Day : ${futureOpenWeatherMap.list!![4].temp!!.day.toString()} °C"
-        txtFutureDay6.text = "Day : ${futureOpenWeatherMap.list!![5].temp!!.day.toString()} °C"
-        txtFutureDay7.text = "Day : ${futureOpenWeatherMap.list!![6].temp!!.day.toString()} °C"
-        txtFutureDay8.text = "Day : ${futureOpenWeatherMap.list!![7].temp!!.day.toString()} °C"
+        txtFutureDay1.text = "Day: ${futureOpenWeatherMap.list!![0].temp!!.day!!.toInt().toString()} °C"
+        txtFutureDay2.text = "Day: ${futureOpenWeatherMap.list!![1].temp!!.day!!.toInt().toString()} °C"
+        txtFutureDay3.text = "Day: ${futureOpenWeatherMap.list!![2].temp!!.day!!.toInt().toString()} °C"
+        txtFutureDay4.text = "Day: ${futureOpenWeatherMap.list!![3].temp!!.day!!.toInt().toString()} °C"
+        txtFutureDay5.text = "Day: ${futureOpenWeatherMap.list!![4].temp!!.day!!.toInt().toString()} °C"
+        txtFutureDay6.text = "Day: ${futureOpenWeatherMap.list!![5].temp!!.day!!.toInt().toString()} °C"
+        txtFutureDay7.text = "Day: ${futureOpenWeatherMap.list!![6].temp!!.day!!.toInt().toString()} °C"
+        txtFutureDay8.text = "Day: ${futureOpenWeatherMap.list!![7].temp!!.day!!.toInt().toString()} °C"
 
-        txtFutureNight1.text = "Night : ${futureOpenWeatherMap.list!![0].temp!!.eve.toString()} °C"
-        txtFutureNight2.text = "Night : ${futureOpenWeatherMap.list!![1].temp!!.eve.toString()} °C"
-        txtFutureNight3.text = "Night : ${futureOpenWeatherMap.list!![2].temp!!.eve.toString()} °C"
-        txtFutureNight4.text = "Night : ${futureOpenWeatherMap.list!![3].temp!!.eve.toString()} °C"
-        txtFutureNight5.text = "Night : ${futureOpenWeatherMap.list!![4].temp!!.eve.toString()} °C"
-        txtFutureNight6.text = "Night : ${futureOpenWeatherMap.list!![5].temp!!.eve.toString()} °C"
-        txtFutureNight7.text = "Night : ${futureOpenWeatherMap.list!![6].temp!!.eve.toString()} °C"
-        txtFutureNight8.text = "Night : ${futureOpenWeatherMap.list!![7].temp!!.eve.toString()} °C"
+        txtFutureNight1.text = "Night: ${futureOpenWeatherMap.list!![0].temp!!.eve!!.toInt().toString()} °C"
+        txtFutureNight2.text = "Night: ${futureOpenWeatherMap.list!![1].temp!!.eve!!.toInt().toString()} °C"
+        txtFutureNight3.text = "Night: ${futureOpenWeatherMap.list!![2].temp!!.eve!!.toInt().toString()} °C"
+        txtFutureNight4.text = "Night: ${futureOpenWeatherMap.list!![3].temp!!.eve!!.toInt().toString()} °C"
+        txtFutureNight5.text = "Night: ${futureOpenWeatherMap.list!![4].temp!!.eve!!.toInt().toString()} °C"
+        txtFutureNight6.text = "Night: ${futureOpenWeatherMap.list!![5].temp!!.eve!!.toInt().toString()} °C"
+        txtFutureNight7.text = "Night: ${futureOpenWeatherMap.list!![6].temp!!.eve!!.toInt().toString()} °C"
+        txtFutureNight8.text = "Night: ${futureOpenWeatherMap.list!![7].temp!!.eve!!.toInt().toString()} °C"
 
 
 
