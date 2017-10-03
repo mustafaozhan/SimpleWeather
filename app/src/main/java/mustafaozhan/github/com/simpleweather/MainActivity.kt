@@ -163,24 +163,35 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, G
 
     private fun setFutureUi(futureOpenWeatherMap: FutureModel) {
 
-        txtFutureCelsius1.text = futureOpenWeatherMap.list!![0].deg.toString()
-        txtFutureCelsius2.text = futureOpenWeatherMap.list!![1].deg.toString()
-        txtFutureCelsius3.text = futureOpenWeatherMap.list!![2].deg.toString()
-        txtFutureCelsius4.text = futureOpenWeatherMap.list!![3].deg.toString()
-        txtFutureCelsius5.text = futureOpenWeatherMap.list!![4].deg.toString()
-        txtFutureCelsius6.text = futureOpenWeatherMap.list!![5].deg.toString()
-        txtFutureCelsius7.text = futureOpenWeatherMap.list!![6].deg.toString()
-        txtFutureCelsius8.text = futureOpenWeatherMap.list!![7].deg.toString()
+        txtFutureDay1.text = "Day : ${futureOpenWeatherMap.list!![0].temp!!.day.toString()} °C"
+        txtFutureDay2.text = "Day : ${futureOpenWeatherMap.list!![1].temp!!.day.toString()} °C"
+        txtFutureDay3.text = "Day : ${futureOpenWeatherMap.list!![2].temp!!.day.toString()} °C"
+        txtFutureDay4.text = "Day : ${futureOpenWeatherMap.list!![3].temp!!.day.toString()} °C"
+        txtFutureDay5.text = "Day : ${futureOpenWeatherMap.list!![4].temp!!.day.toString()} °C"
+        txtFutureDay6.text = "Day : ${futureOpenWeatherMap.list!![5].temp!!.day.toString()} °C"
+        txtFutureDay7.text = "Day : ${futureOpenWeatherMap.list!![6].temp!!.day.toString()} °C"
+        txtFutureDay8.text = "Day : ${futureOpenWeatherMap.list!![7].temp!!.day.toString()} °C"
 
-        imgFuture1.setByUrl(imgFuture1,futureOpenWeatherMap.list!![0].weather!![0].icon!!)
-        imgFuture2.setByUrl(imgFuture2,futureOpenWeatherMap.list!![1].weather!![0].icon!!)
-        imgFuture3.setByUrl(imgFuture3,futureOpenWeatherMap.list!![2].weather!![0].icon!!)
-        imgFuture4.setByUrl(imgFuture4,futureOpenWeatherMap.list!![3].weather!![0].icon!!)
-        imgFuture5.setByUrl(imgFuture5,futureOpenWeatherMap.list!![4].weather!![0].icon!!)
-        imgFuture6.setByUrl(imgFuture6,futureOpenWeatherMap.list!![5].weather!![0].icon!!)
-        imgFuture7.setByUrl(imgFuture7,futureOpenWeatherMap.list!![6].weather!![0].icon!!)
-        imgFuture8.setByUrl(imgFuture8,futureOpenWeatherMap.list!![7].weather!![0].icon!!)
+        txtFutureNight1.text = "Night : ${futureOpenWeatherMap.list!![0].temp!!.eve.toString()} °C"
+        txtFutureNight2.text = "Night : ${futureOpenWeatherMap.list!![1].temp!!.eve.toString()} °C"
+        txtFutureNight3.text = "Night : ${futureOpenWeatherMap.list!![2].temp!!.eve.toString()} °C"
+        txtFutureNight4.text = "Night : ${futureOpenWeatherMap.list!![3].temp!!.eve.toString()} °C"
+        txtFutureNight5.text = "Night : ${futureOpenWeatherMap.list!![4].temp!!.eve.toString()} °C"
+        txtFutureNight6.text = "Night : ${futureOpenWeatherMap.list!![5].temp!!.eve.toString()} °C"
+        txtFutureNight7.text = "Night : ${futureOpenWeatherMap.list!![6].temp!!.eve.toString()} °C"
+        txtFutureNight8.text = "Night : ${futureOpenWeatherMap.list!![7].temp!!.eve.toString()} °C"
 
+
+
+
+        imgFuture1.setByUrl(imgFuture1, futureOpenWeatherMap.list!![0].weather!![0].icon!!)
+        imgFuture2.setByUrl(imgFuture2, futureOpenWeatherMap.list!![1].weather!![0].icon!!)
+        imgFuture3.setByUrl(imgFuture3, futureOpenWeatherMap.list!![2].weather!![0].icon!!)
+        imgFuture4.setByUrl(imgFuture4, futureOpenWeatherMap.list!![3].weather!![0].icon!!)
+        imgFuture5.setByUrl(imgFuture5, futureOpenWeatherMap.list!![4].weather!![0].icon!!)
+        imgFuture6.setByUrl(imgFuture6, futureOpenWeatherMap.list!![5].weather!![0].icon!!)
+        imgFuture7.setByUrl(imgFuture7, futureOpenWeatherMap.list!![6].weather!![0].icon!!)
+        imgFuture8.setByUrl(imgFuture8, futureOpenWeatherMap.list!![7].weather!![0].icon!!)
 
 
 //        imgFuture2.setImageByUrl(futureOpenWeatherMap.list!![1].weather!![0].icon!!)
@@ -191,7 +202,7 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, G
 //        imgFuture7.setImageByUrl(futureOpenWeatherMap.list!![6].weather!![0].icon!!)
 //        imgFuture8.setImageByUrl(futureOpenWeatherMap.list!![7].weather!![0].icon!!)
 
-        Log.e("aasdasdas",""+futureOpenWeatherMap.list!![0].weather!![0].icon!!)
+        Log.e("aasdasdas", "" + futureOpenWeatherMap.list!![0].weather!![0].icon!!)
 
 
     }

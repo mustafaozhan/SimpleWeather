@@ -145,10 +145,11 @@
         android:id="@+id/imgFuture5"
         android:layout_width="75sp"
         android:layout_height="75sp"
+        android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtDate1"
+        app:layout_constraintTop_toBottomOf="@+id/txtFutureNight1"
         app:srcCompat="@color/Transparent" />
 
     <ImageView
@@ -160,7 +161,7 @@
         android:layout_marginTop="8dp"
         app:layout_constraintLeft_toRightOf="@+id/imgFuture5"
         app:layout_constraintRight_toLeftOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/txtDate2"
+        app:layout_constraintTop_toBottomOf="@+id/txtFutureNight2"
         app:srcCompat="@color/Transparent" />
 
     <ImageView
@@ -170,10 +171,10 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.467"
         app:layout_constraintLeft_toLeftOf="@+id/guideline"
         app:layout_constraintRight_toLeftOf="@+id/imgFuture8"
-        app:layout_constraintTop_toBottomOf="@+id/txtDate3"
+        app:layout_constraintTop_toBottomOf="@+id/txtFutureNight3"
         app:srcCompat="@color/Transparent" />
 
     <ImageView
@@ -181,9 +182,10 @@
         android:layout_width="75sp"
         android:layout_height="75sp"
         android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtDate4"
+        app:layout_constraintTop_toBottomOf="@+id/txtFutureNight4"
         app:srcCompat="@color/Transparent" />
 
     <android.support.constraint.Guideline
@@ -194,68 +196,73 @@
         app:layout_constraintGuide_percent="0.5" />
 
     <TextView
-        android:id="@+id/txtFutureCelsius1"
+        android:id="@+id/txtDate1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
-
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintLeft_toLeftOf="@+id/imgFuture1"
         app:layout_constraintRight_toRightOf="@+id/imgFuture1"
         app:layout_constraintTop_toBottomOf="@+id/imgFuture1" />
 
     <TextView
-        android:id="@+id/txtDate1"
+        android:id="@+id/txtFutureDay1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
-
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintLeft_toLeftOf="@+id/imgFuture1"
         app:layout_constraintRight_toRightOf="@+id/imgFuture1"
-        app:layout_constraintTop_toBottomOf="@+id/txtFutureCelsius1" />
+        app:layout_constraintTop_toBottomOf="@+id/txtDate1" />
 
     <TextView
-        android:id="@+id/txtFutureCelsius2"
+        android:id="@+id/txtFutureNight1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintLeft_toLeftOf="@+id/imgFuture2"
-        app:layout_constraintRight_toRightOf="@+id/imgFuture2"
-        app:layout_constraintTop_toBottomOf="@+id/imgFuture2" />
+        app:layout_constraintLeft_toLeftOf="@+id/imgFuture1"
+        app:layout_constraintRight_toRightOf="@+id/imgFuture1"
+        app:layout_constraintTop_toBottomOf="@+id/txtFutureDay1" />
 
     <TextView
         android:id="@+id/txtDate2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
-
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintLeft_toLeftOf="@+id/imgFuture2"
         app:layout_constraintRight_toRightOf="@+id/imgFuture2"
-        app:layout_constraintTop_toBottomOf="@+id/txtFutureCelsius2" />
+        app:layout_constraintTop_toBottomOf="@+id/imgFuture2" />
 
     <TextView
-        android:id="@+id/txtFutureCelsius3"
+        android:id="@+id/txtFutureDay2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintLeft_toLeftOf="@+id/imgFuture3"
-        app:layout_constraintRight_toRightOf="@+id/imgFuture3"
-        app:layout_constraintTop_toBottomOf="@+id/imgFuture3" />
+        app:layout_constraintLeft_toLeftOf="@+id/imgFuture2"
+        app:layout_constraintRight_toRightOf="@+id/imgFuture2"
+        app:layout_constraintTop_toBottomOf="@+id/txtDate2" />
+
+    <TextView
+        android:id="@+id/txtFutureNight2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/imgFuture2"
+        app:layout_constraintRight_toRightOf="@+id/imgFuture2"
+        app:layout_constraintTop_toBottomOf="@+id/txtFutureDay2" />
 
     <TextView
         android:id="@+id/txtDate3"
@@ -264,22 +271,32 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintLeft_toLeftOf="@+id/imgFuture3"
         app:layout_constraintRight_toRightOf="@+id/imgFuture3"
-        app:layout_constraintTop_toBottomOf="@+id/txtFutureCelsius3" />
+        app:layout_constraintTop_toBottomOf="@+id/imgFuture3" />
 
     <TextView
-        android:id="@+id/txtFutureCelsius4"
+        android:id="@+id/txtFutureDay3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/imgFuture3"
+        app:layout_constraintRight_toRightOf="@+id/imgFuture3"
+        app:layout_constraintTop_toBottomOf="@+id/txtDate3" />
+
+    <TextView
+        android:id="@+id/txtFutureNight3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintLeft_toLeftOf="@+id/imgFuture4"
-        app:layout_constraintRight_toRightOf="@+id/imgFuture4"
-        app:layout_constraintTop_toBottomOf="@+id/imgFuture4" />
+        app:layout_constraintLeft_toLeftOf="@+id/imgFuture3"
+        app:layout_constraintRight_toRightOf="@+id/imgFuture3"
+        app:layout_constraintTop_toBottomOf="@+id/txtFutureDay3" />
 
     <TextView
         android:id="@+id/txtDate4"
@@ -288,22 +305,31 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintLeft_toLeftOf="@+id/imgFuture4"
         app:layout_constraintRight_toRightOf="@+id/imgFuture4"
-        app:layout_constraintTop_toBottomOf="@+id/txtFutureCelsius4" />
+        app:layout_constraintTop_toBottomOf="@+id/imgFuture4" />
 
     <TextView
-        android:id="@+id/txtFutureCelsius5"
+        android:id="@+id/txtFutureDay4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintLeft_toLeftOf="@+id/imgFuture5"
-        app:layout_constraintRight_toRightOf="@+id/imgFuture5"
-        app:layout_constraintTop_toBottomOf="@+id/imgFuture5" />
+        app:layout_constraintLeft_toLeftOf="@+id/imgFuture4"
+        app:layout_constraintRight_toRightOf="@+id/imgFuture4"
+        app:layout_constraintTop_toBottomOf="@+id/txtDate4" />
+
+    <TextView
+        android:id="@+id/txtFutureNight4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/imgFuture4"
+        app:layout_constraintRight_toRightOf="@+id/imgFuture4"
+        app:layout_constraintTop_toBottomOf="@+id/txtFutureDay4" />
 
     <TextView
         android:id="@+id/txtDate5"
@@ -312,22 +338,31 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintLeft_toLeftOf="@+id/imgFuture5"
         app:layout_constraintRight_toRightOf="@+id/imgFuture5"
-        app:layout_constraintTop_toBottomOf="@+id/txtFutureCelsius5" />
+        app:layout_constraintTop_toBottomOf="@+id/imgFuture5" />
 
     <TextView
-        android:id="@+id/txtFutureCelsius6"
+        android:id="@+id/txtFutureDay5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintLeft_toLeftOf="@+id/imgFuture6"
-        app:layout_constraintRight_toRightOf="@+id/imgFuture6"
-        app:layout_constraintTop_toBottomOf="@+id/imgFuture6" />
+        app:layout_constraintLeft_toLeftOf="@+id/imgFuture5"
+        app:layout_constraintRight_toRightOf="@+id/imgFuture5"
+        app:layout_constraintTop_toBottomOf="@+id/txtDate5" />
+
+    <TextView
+        android:id="@+id/txtFutureNight5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/imgFuture5"
+        app:layout_constraintRight_toRightOf="@+id/imgFuture5"
+        app:layout_constraintTop_toBottomOf="@+id/txtFutureDay5" />
 
     <TextView
         android:id="@+id/txtDate6"
@@ -336,22 +371,31 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintLeft_toLeftOf="@+id/imgFuture6"
         app:layout_constraintRight_toRightOf="@+id/imgFuture6"
-        app:layout_constraintTop_toBottomOf="@+id/txtFutureCelsius6" />
+        app:layout_constraintTop_toBottomOf="@+id/imgFuture6" />
 
     <TextView
-        android:id="@+id/txtFutureCelsius7"
+        android:id="@+id/txtFutureDay6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="6dp"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintLeft_toLeftOf="@+id/imgFuture7"
-        app:layout_constraintRight_toRightOf="@+id/imgFuture7"
-        app:layout_constraintTop_toBottomOf="@+id/imgFuture7" />
+        android:layout_marginTop="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/imgFuture6"
+        app:layout_constraintRight_toRightOf="@+id/imgFuture6"
+        app:layout_constraintTop_toBottomOf="@+id/txtDate6" />
+
+    <TextView
+        android:id="@+id/txtFutureNight6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/imgFuture6"
+        app:layout_constraintRight_toRightOf="@+id/imgFuture6"
+        app:layout_constraintTop_toBottomOf="@+id/txtFutureDay6" />
 
     <TextView
         android:id="@+id/txtDate7"
@@ -360,22 +404,31 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintLeft_toLeftOf="@+id/imgFuture7"
         app:layout_constraintRight_toRightOf="@+id/imgFuture7"
-        app:layout_constraintTop_toBottomOf="@+id/txtFutureCelsius7" />
+        app:layout_constraintTop_toBottomOf="@+id/imgFuture7" />
 
     <TextView
-        android:id="@+id/txtFutureCelsius8"
+        android:id="@+id/txtFutureDay7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintLeft_toLeftOf="@+id/imgFuture8"
-        app:layout_constraintRight_toRightOf="@+id/imgFuture8"
-        app:layout_constraintTop_toBottomOf="@+id/imgFuture8" />
+        app:layout_constraintLeft_toLeftOf="@+id/imgFuture7"
+        app:layout_constraintRight_toRightOf="@+id/imgFuture7"
+        app:layout_constraintTop_toBottomOf="@+id/txtDate7" />
+
+    <TextView
+        android:id="@+id/txtFutureNight7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/imgFuture7"
+        app:layout_constraintRight_toRightOf="@+id/imgFuture7"
+        app:layout_constraintTop_toBottomOf="@+id/txtFutureDay7" />
 
     <TextView
         android:id="@+id/txtDate8"
@@ -384,8 +437,31 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintLeft_toLeftOf="@+id/imgFuture8"
         app:layout_constraintRight_toRightOf="@+id/imgFuture8"
-        app:layout_constraintTop_toBottomOf="@+id/txtFutureCelsius8" />
+        app:layout_constraintTop_toBottomOf="@+id/imgFuture8" />
+
+    <TextView
+        android:id="@+id/txtFutureDay8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/imgFuture8"
+        app:layout_constraintRight_toRightOf="@+id/imgFuture8"
+        app:layout_constraintTop_toBottomOf="@+id/txtDate8" />
+
+    <TextView
+        android:id="@+id/txtFutureNight8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/imgFuture8"
+        app:layout_constraintRight_toRightOf="@+id/imgFuture8"
+        app:layout_constraintTop_toBottomOf="@+id/txtFutureDay8" />
+
 </android.support.constraint.ConstraintLayout>
