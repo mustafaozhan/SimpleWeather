@@ -121,8 +121,8 @@ class ResponseModel {
 
     inner class Coord {
 
-        var lon: Int? = null
-        var lat: Int? = null
+        var lon: Double? = null
+        var lat: Double? = null
         private val additionalProperties = HashMap<String, Any>()
 
         fun getAdditionalProperties(): Map<String, Any> = this.additionalProperties

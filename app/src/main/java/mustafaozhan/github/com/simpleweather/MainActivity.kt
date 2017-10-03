@@ -1,6 +1,5 @@
 package mustafaozhan.github.com.simpleweather
 
-import android.app.ProgressDialog
 import android.content.pm.PackageManager
 import android.location.Location
 
@@ -35,9 +34,9 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, G
     private val PLAY_SERVICE_RESOLUTION_REQUEST = 1000
 
     private var mGoogleApiClient: GoogleApiClient? = null
-    var mLocationRequest: LocationRequest? = null
-    var openWeatherMap = ResponseModel()
-    var futureOpenWeatherMap = FutureModel()
+    private var mLocationRequest: LocationRequest? = null
+    private var openWeatherMap = ResponseModel()
+    private var futureOpenWeatherMap = FutureModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,7 +60,7 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, G
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         when (requestCode) {
             PERMISSION_REQUEST_CODE -> {
-                if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
+                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)
                     if (checkPlayService())
                         buildGoogleApiClient()
             }
@@ -121,9 +120,6 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, G
 
     override fun onLocationChanged(location: Location?) {
 
-        val pd = ProgressDialog(this@MainActivity)
-        pd.setTitle("Please wait")
-        pd.show()
 
         doAsync {
 
@@ -131,25 +127,20 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, G
             val futureUrlString = Common.futureApiRequest(location?.latitude.toString(), location?.longitude.toString())
             val http = Helper()
 
-
             thread {
                 var streamWeather = http.getHTTPData(urlString)
-                if (streamWeather.contains("Error: Not found city"))
-                    pd.dismiss()
+
                 var gSonWeather = Gson()
                 var mType = object : TypeToken<ResponseModel>() {}.type
 
                 openWeatherMap = gSonWeather.fromJson<ResponseModel>(streamWeather, mType)
 
                 streamWeather = http.getHTTPData(futureUrlString)
-                if (streamWeather.contains("Error: Not found city"))
-                    pd.dismiss()
+
                 gSonWeather = Gson()
                 mType = object : TypeToken<FutureModel>() {}.type
 
                 futureOpenWeatherMap = gSonWeather.fromJson<FutureModel>(streamWeather, mType)
-
-                pd.dismiss()
 
                 runOnUiThread {
                     setUi(openWeatherMap)
@@ -163,34 +154,32 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, G
 
     private fun setFutureUi(futureOpenWeatherMap: FutureModel) {
 
-        txtFutureDay1.text = "Day: ${futureOpenWeatherMap.list!![0].temp!!.day!!.toInt().toString()} °C"
-        txtFutureDay2.text = "Day: ${futureOpenWeatherMap.list!![1].temp!!.day!!.toInt().toString()} °C"
-        txtFutureDay3.text = "Day: ${futureOpenWeatherMap.list!![2].temp!!.day!!.toInt().toString()} °C"
-        txtFutureDay4.text = "Day: ${futureOpenWeatherMap.list!![3].temp!!.day!!.toInt().toString()} °C"
-        txtFutureDay5.text = "Day: ${futureOpenWeatherMap.list!![4].temp!!.day!!.toInt().toString()} °C"
-        txtFutureDay6.text = "Day: ${futureOpenWeatherMap.list!![5].temp!!.day!!.toInt().toString()} °C"
-        txtFutureDay7.text = "Day: ${futureOpenWeatherMap.list!![6].temp!!.day!!.toInt().toString()} °C"
-        txtFutureDay8.text = "Day: ${futureOpenWeatherMap.list!![7].temp!!.day!!.toInt().toString()} °C"
+        txtFutureDay1.text = "Day: ${futureOpenWeatherMap.list!![0].temp!!.day!!.toInt()} °C"
+        txtFutureDay2.text = "Day: ${futureOpenWeatherMap.list!![1].temp!!.day!!.toInt()} °C"
+        txtFutureDay3.text = "Day: ${futureOpenWeatherMap.list!![2].temp!!.day!!.toInt()} °C"
+        txtFutureDay4.text = "Day: ${futureOpenWeatherMap.list!![3].temp!!.day!!.toInt()} °C"
+        txtFutureDay5.text = "Day: ${futureOpenWeatherMap.list!![4].temp!!.day!!.toInt()} °C"
+        txtFutureDay6.text = "Day: ${futureOpenWeatherMap.list!![5].temp!!.day!!.toInt()} °C"
+        txtFutureDay7.text = "Day: ${futureOpenWeatherMap.list!![6].temp!!.day!!.toInt()} °C"
+        txtFutureDay8.text = "Day: ${futureOpenWeatherMap.list!![7].temp!!.day!!.toInt()} °C"
 
-        txtFutureNight1.text = "Night: ${futureOpenWeatherMap.list!![0].temp!!.eve!!.toInt().toString()} °C"
-        txtFutureNight2.text = "Night: ${futureOpenWeatherMap.list!![1].temp!!.eve!!.toInt().toString()} °C"
-        txtFutureNight3.text = "Night: ${futureOpenWeatherMap.list!![2].temp!!.eve!!.toInt().toString()} °C"
-        txtFutureNight4.text = "Night: ${futureOpenWeatherMap.list!![3].temp!!.eve!!.toInt().toString()} °C"
-        txtFutureNight5.text = "Night: ${futureOpenWeatherMap.list!![4].temp!!.eve!!.toInt().toString()} °C"
-        txtFutureNight6.text = "Night: ${futureOpenWeatherMap.list!![5].temp!!.eve!!.toInt().toString()} °C"
-        txtFutureNight7.text = "Night: ${futureOpenWeatherMap.list!![6].temp!!.eve!!.toInt().toString()} °C"
-        txtFutureNight8.text = "Night: ${futureOpenWeatherMap.list!![7].temp!!.eve!!.toInt().toString()} °C"
+        txtFutureNight1.text = "Night: ${futureOpenWeatherMap.list!![0].temp!!.night!!.toInt()} °C"
+        txtFutureNight2.text = "Night: ${futureOpenWeatherMap.list!![1].temp!!.night!!.toInt()} °C"
+        txtFutureNight3.text = "Night: ${futureOpenWeatherMap.list!![2].temp!!.night!!.toInt()} °C"
+        txtFutureNight4.text = "Night: ${futureOpenWeatherMap.list!![3].temp!!.night!!.toInt()} °C"
+        txtFutureNight5.text = "Night: ${futureOpenWeatherMap.list!![4].temp!!.night!!.toInt()} °C"
+        txtFutureNight6.text = "Night: ${futureOpenWeatherMap.list!![5].temp!!.night!!.toInt()} °C"
+        txtFutureNight7.text = "Night: ${futureOpenWeatherMap.list!![6].temp!!.night!!.toInt()} °C"
+        txtFutureNight8.text = "Night: ${futureOpenWeatherMap.list!![7].temp!!.night!!.toInt()} °C"
 
-
-        txtDate1.text= Common.getCurrentDate(0)
-        txtDate2.text= Common.getCurrentDate(1)
-        txtDate3.text= Common.getCurrentDate(2)
-        txtDate4.text= Common.getCurrentDate(3)
-        txtDate5.text= Common.getCurrentDate(4)
-        txtDate6.text= Common.getCurrentDate(5)
-        txtDate7.text= Common.getCurrentDate(6)
-        txtDate8.text= Common.getCurrentDate(7)
-
+        txtDate1.text = Common.getCurrentDate(0)
+        txtDate2.text = Common.getCurrentDate(1)
+        txtDate3.text = Common.getCurrentDate(2)
+        txtDate4.text = Common.getCurrentDate(3)
+        txtDate5.text = Common.getCurrentDate(4)
+        txtDate6.text = Common.getCurrentDate(5)
+        txtDate7.text = Common.getCurrentDate(6)
+        txtDate8.text = Common.getCurrentDate(7)
 
         imgFuture1.setByUrl(imgFuture1, futureOpenWeatherMap.list!![0].weather!![0].icon!!)
         imgFuture2.setByUrl(imgFuture2, futureOpenWeatherMap.list!![1].weather!![0].icon!!)
@@ -200,8 +189,6 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, G
         imgFuture6.setByUrl(imgFuture6, futureOpenWeatherMap.list!![5].weather!![0].icon!!)
         imgFuture7.setByUrl(imgFuture7, futureOpenWeatherMap.list!![6].weather!![0].icon!!)
         imgFuture8.setByUrl(imgFuture8, futureOpenWeatherMap.list!![7].weather!![0].icon!!)
-
-
 
 
     }
@@ -217,8 +204,6 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, G
         Picasso.with(applicationContext)
                 .load(Common.getImage(openWeatherMap.weather!![0].icon!!))
                 .into(imageView)
-
-
     }
 
     override fun onStart() {
