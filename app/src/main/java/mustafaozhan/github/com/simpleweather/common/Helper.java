@@ -13,7 +13,7 @@ import java.net.URL;
 
 public class Helper {
 
-    static String stream = null;
+    private static String stream = null;
 
     public Helper() {
     }
@@ -36,8 +36,6 @@ public class Helper {
                 urlConnection.disconnect();
 
             }
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }

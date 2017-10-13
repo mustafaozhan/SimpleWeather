@@ -12,9 +12,7 @@ class FutureModel {
     var list: kotlin.collections.List<List>? = null
     private val additionalProperties = HashMap<String, Any>()
 
-    fun getAdditionalProperties(): Map<String, Any> {
-        return this.additionalProperties
-    }
+    fun getAdditionalProperties(): Map<String, Any> = this.additionalProperties
 
     fun setAdditionalProperty(name: String, value: Any) {
         this.additionalProperties.put(name, value)
@@ -29,9 +27,7 @@ class FutureModel {
         var population: Int? = null
         private val additionalProperties = HashMap<String, Any>()
 
-        fun getAdditionalProperties(): Map<String, Any> {
-            return this.additionalProperties
-        }
+        fun getAdditionalProperties(): Map<String, Any> = this.additionalProperties
 
         fun setAdditionalProperty(name: String, value: Any) {
             this.additionalProperties.put(name, value)
@@ -45,9 +41,7 @@ class FutureModel {
         var lat: Double? = null
         private val additionalProperties = HashMap<String, Any>()
 
-        fun getAdditionalProperties(): Map<String, Any> {
-            return this.additionalProperties
-        }
+        fun getAdditionalProperties(): Map<String, Any> = this.additionalProperties
 
         fun setAdditionalProperty(name: String, value: Any) {
             this.additionalProperties.put(name, value)
@@ -68,9 +62,7 @@ class FutureModel {
         var rain: Double? = null
         private val additionalProperties = HashMap<String, Any>()
 
-        fun getAdditionalProperties(): Map<String, Any> {
-            return this.additionalProperties
-        }
+        fun getAdditionalProperties(): Map<String, Any> = this.additionalProperties
 
         fun setAdditionalProperty(name: String, value: Any) {
             this.additionalProperties.put(name, value)
@@ -88,9 +80,7 @@ class FutureModel {
         var morn: Double? = null
         private val additionalProperties = HashMap<String, Any>()
 
-        fun getAdditionalProperties(): Map<String, Any> {
-            return this.additionalProperties
-        }
+        fun getAdditionalProperties(): Map<String, Any> = this.additionalProperties
 
         fun setAdditionalProperty(name: String, value: Any) {
             this.additionalProperties.put(name, value)
@@ -106,9 +96,7 @@ class FutureModel {
         var icon: String? = null
         private val additionalProperties = HashMap<String, Any>()
 
-        fun getAdditionalProperties(): Map<String, Any> {
-            return this.additionalProperties
-        }
+        fun getAdditionalProperties(): Map<String, Any> = this.additionalProperties
 
         fun setAdditionalProperty(name: String, value: Any) {
             this.additionalProperties.put(name, value)
