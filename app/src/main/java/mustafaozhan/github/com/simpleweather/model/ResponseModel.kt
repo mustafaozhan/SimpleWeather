@@ -7,15 +7,15 @@ package mustafaozhan.github.com.simpleweather.model
 class ResponseModel {
     private var coord: Coord? = null
     var weather: List<Weather>? = null
-    var base: String? = null
+    private var base: String? = null
     var main: Main? = null
-    var wind: Wind? = null
-    var clouds: Clouds? = null
-    var dt: Int? = null
+    private var wind: Wind? = null
+    private var clouds: Clouds? = null
+    private var dt: Int? = null
     var sys: Sys? = null
-    var id: Int? = null
+    private var id: Int? = null
     var name: String? = null
-    var cod: Int? = null
+    private var cod: Int? = null
     private val additionalProperties = HashMap<String, Any>()
 
     constructor() {}
