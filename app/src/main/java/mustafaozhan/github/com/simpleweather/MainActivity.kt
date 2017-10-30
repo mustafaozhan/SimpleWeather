@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GooglePlayServicesUtil
@@ -124,6 +125,7 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, G
 
         doAsync {
 
+            mProgressBar.progress
             val urlString = Common.apiRequest(location?.latitude.toString(), location?.longitude.toString())
             val futureUrlString = Common.futureApiRequest(location?.latitude.toString(), location?.longitude.toString())
             val http = Helper()
@@ -146,6 +148,7 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, G
                 runOnUiThread {
                     setUi(openWeatherMap)
                     setFutureUi(futureOpenWeatherMap)
+                    mProgressBar.visibility=View.GONE
                 }
 
             }
