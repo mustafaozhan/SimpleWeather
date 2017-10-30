@@ -8,7 +8,6 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
 import android.util.Log
-import android.widget.ImageView
 import android.widget.Toast
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GooglePlayServicesUtil
@@ -18,11 +17,10 @@ import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationServices
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
 import mustafaozhan.github.com.simpleweather.common.Common
 import mustafaozhan.github.com.simpleweather.common.Helper
-import mustafaozhan.github.com.simpleweather.extension.setByUrl
+import mustafaozhan.github.com.simpleweather.extension.setFromDrawableByName
 import mustafaozhan.github.com.simpleweather.model.FutureModel
 import mustafaozhan.github.com.simpleweather.model.ResponseModel
 import org.jetbrains.anko.doAsync
@@ -182,14 +180,14 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, G
         txtDate7.text = Common.getCurrentDate(6)
         txtDate8.text = Common.getCurrentDate(7)
 
-        imgFuture1.setByUrl(imgFuture1, futureOpenWeatherMap.list!![0].weather!![0].icon!!)
-        imgFuture2.setByUrl(imgFuture2, futureOpenWeatherMap.list!![1].weather!![0].icon!!)
-        imgFuture3.setByUrl(imgFuture3, futureOpenWeatherMap.list!![2].weather!![0].icon!!)
-        imgFuture4.setByUrl(imgFuture4, futureOpenWeatherMap.list!![3].weather!![0].icon!!)
-        imgFuture5.setByUrl(imgFuture5, futureOpenWeatherMap.list!![4].weather!![0].icon!!)
-        imgFuture6.setByUrl(imgFuture6, futureOpenWeatherMap.list!![5].weather!![0].icon!!)
-        imgFuture7.setByUrl(imgFuture7, futureOpenWeatherMap.list!![6].weather!![0].icon!!)
-        imgFuture8.setByUrl(imgFuture8, futureOpenWeatherMap.list!![7].weather!![0].icon!!)
+        imgFuture1.setFromDrawableByName(futureOpenWeatherMap.list!![0].weather!![0].icon!!)
+        imgFuture2.setFromDrawableByName(futureOpenWeatherMap.list!![1].weather!![0].icon!!)
+        imgFuture3.setFromDrawableByName(futureOpenWeatherMap.list!![2].weather!![0].icon!!)
+        imgFuture4.setFromDrawableByName(futureOpenWeatherMap.list!![3].weather!![0].icon!!)
+        imgFuture5.setFromDrawableByName(futureOpenWeatherMap.list!![4].weather!![0].icon!!)
+        imgFuture6.setFromDrawableByName(futureOpenWeatherMap.list!![5].weather!![0].icon!!)
+        imgFuture7.setFromDrawableByName(futureOpenWeatherMap.list!![6].weather!![0].icon!!)
+        imgFuture8.setFromDrawableByName(futureOpenWeatherMap.list!![7].weather!![0].icon!!)
 
 
     }
@@ -201,10 +199,7 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, G
         txtTime.text = "${Common.unixTimeStampToDateTime(openWeatherMap.sys!!.sunrise!!.toDouble())} / ${Common.unixTimeStampToDateTime(openWeatherMap.sys!!.sunset!!.toDouble())}"
         txtHuminty.text = "Humidity %${openWeatherMap.main!!.humidity}"
         txtCelsius.text = "${openWeatherMap.main!!.temp} °C"
-
-        Picasso.with(applicationContext)
-                .load(Common.getImage(openWeatherMap.weather!![0].icon!!))
-                .into(imageView)
+        imageView.setFromDrawableByName(openWeatherMap.weather!![0].icon!!)
     }
 
     override fun onStart() {
