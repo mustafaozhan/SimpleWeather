@@ -1,5 +1,6 @@
 package mustafaozhan.github.com.simpleweather
 
+import android.annotation.SuppressLint
 import android.content.pm.PackageManager
 import android.location.Location
 
@@ -74,6 +75,7 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, G
     }
 
 
+    @Suppress("DEPRECATION")
     private fun checkPlayService(): Boolean {
         val resultCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this)
         if (resultCode != ConnectionResult.SUCCESS) {
@@ -151,6 +153,7 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, G
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun setFutureUi(futureOpenWeatherMap: FutureModel) {
 
         txtFutureDay1.text = "Day: ${futureOpenWeatherMap.list!![0].temp!!.day!!.toInt()} °C"
@@ -192,6 +195,7 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, G
 
     }
 
+    @SuppressLint("SetTextI18n")
     private fun setUi(openWeatherMap: ResponseModel) {
         txtCity.text = "${openWeatherMap.name},${openWeatherMap.sys!!.country}"
         txtLastUpdate.text = "Last Updated: ${Common.getCurrentDateAndTime()}"
