@@ -34,8 +34,8 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="60sp"
-        android:layout_height="60sp"
+        android:layout_width="64sp"
+        android:layout_height="64sp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
@@ -65,7 +65,6 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:textSize="12sp"
-        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtCelsius" />
@@ -90,15 +89,14 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:textSize="18sp"
-        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtDescription" />
 
     <ImageView
         android:id="@+id/imgFuture1"
-        android:layout_width="60sp"
-        android:layout_height="60sp"
+        android:layout_width="64sp"
+        android:layout_height="64sp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:contentDescription="@string/icon"
@@ -108,13 +106,13 @@
 
     <ImageView
         android:id="@+id/imgFuture2"
-        android:layout_width="60sp"
-        android:layout_height="60sp"
+        android:layout_width="64sp"
+        android:layout_height="64sp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:contentDescription="@string/icon"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.66"
         app:layout_constraintLeft_toRightOf="@+id/imgFuture1"
         app:layout_constraintRight_toLeftOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/txtTime"
@@ -122,13 +120,13 @@
 
     <ImageView
         android:id="@+id/imgFuture3"
-        android:layout_width="60sp"
-        android:layout_height="60sp"
+        android:layout_width="64sp"
+        android:layout_height="64sp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:contentDescription="@string/icon"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.33"
         app:layout_constraintLeft_toLeftOf="@+id/guideline"
         app:layout_constraintRight_toLeftOf="@+id/imgFuture4"
         app:layout_constraintTop_toBottomOf="@+id/txtTime"
@@ -136,8 +134,8 @@
 
     <ImageView
         android:id="@+id/imgFuture4"
-        android:layout_width="60sp"
-        android:layout_height="60sp"
+        android:layout_width="64sp"
+        android:layout_height="64sp"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="8dp"
         android:contentDescription="@string/icon"
@@ -147,11 +145,8 @@
 
     <ImageView
         android:id="@+id/imgFuture5"
-        android:layout_width="60sp"
-        android:layout_height="60sp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginStart="8dp"
+        android:layout_width="64sp"
+        android:layout_height="64sp"
         android:layout_marginTop="-1dp"
         android:contentDescription="@string/icon"
         app:layout_constraintHorizontal_bias="0.5"
@@ -162,12 +157,12 @@
 
     <ImageView
         android:id="@+id/imgFuture6"
-        android:layout_width="60sp"
-        android:layout_height="60sp"
+        android:layout_width="64sp"
+        android:layout_height="64sp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="0dp"
         android:contentDescription="@string/icon"
+        app:layout_constraintHorizontal_bias="0.66"
         app:layout_constraintLeft_toRightOf="@+id/imgFuture5"
         app:layout_constraintRight_toLeftOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/txtFutureNight2"
@@ -175,13 +170,13 @@
 
     <ImageView
         android:id="@+id/imgFuture7"
-        android:layout_width="60sp"
-        android:layout_height="60sp"
+        android:layout_width="64sp"
+        android:layout_height="64sp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="-1dp"
         android:contentDescription="@string/icon"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.33"
         app:layout_constraintLeft_toLeftOf="@+id/guideline"
         app:layout_constraintRight_toLeftOf="@+id/imgFuture8"
         app:layout_constraintTop_toBottomOf="@+id/txtFutureNight3"
@@ -189,11 +184,8 @@
 
     <ImageView
         android:id="@+id/imgFuture8"
-        android:layout_width="60sp"
-        android:layout_height="60sp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
+        android:layout_width="64sp"
+        android:layout_height="64sp"
         android:contentDescription="@string/icon"
         app:layout_constraintLeft_toLeftOf="@+id/imgFuture4"
         app:layout_constraintRight_toRightOf="@+id/imgFuture4"
