@@ -22,6 +22,7 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
 import mustafaozhan.github.com.simpleweather.common.Common
 import mustafaozhan.github.com.simpleweather.common.Helper
+import mustafaozhan.github.com.simpleweather.extension.setByUrl
 import mustafaozhan.github.com.simpleweather.model.FutureModel
 import mustafaozhan.github.com.simpleweather.model.ResponseModel
 import org.jetbrains.anko.doAsync
@@ -221,12 +222,6 @@ class MainActivity : AppCompatActivity(), GoogleApiClient.ConnectionCallbacks, G
         super.onResume()
         checkPlayService()
     }
-}
-
-private fun ImageView.setByUrl(icon: ImageView, icon1: String) {
-    Picasso.with(context)
-            .load(Common.getImage(icon1))
-            .into(icon)
 }
 
 
